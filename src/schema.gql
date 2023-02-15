@@ -1,0 +1,166 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type TransactionStatus {
+  """Identificador"""
+  id: Int!
+  name: String!
+}
+
+type TransactionCreate {
+  """Identidicador de la tabla)"""
+  id: Int!
+  transactionExternalId: String!
+  accountExternalIdDebit: String
+  accountExternalIdCredit: String
+  tranferTypeId: Int!
+  value: Int!
+  transactionStatusId: Int!
+  transactionTypeId: Int!
+  transactionType: Int!
+  getTransactionType: TransactionType!
+  getTransactionStatus: TransactionStatus!
+}
+
+type TransactionType {
+  """Identificador"""
+  id: Int!
+  name: String!
+  transactionCreate: [TransactionCreate!]
+}
+
+type TransactionRetrieve {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type Client {
+  """Identificador de entidad cliente"""
+  id: Int!
+  name: String!
+  last_name: String!
+  address: String!
+  idtypename: String!
+}
+
+type Auth {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type Shared {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type Query {
+  transactionCreateAll: [TransactionCreate!]!
+  transactionCreateById(transactionExternalId: Int!): TransactionCreate!
+  transactionCreateByIdInt(id: Int!): TransactionCreate!
+  transactionTypeAll: [TransactionType!]!
+  transactionType(id: Int!): TransactionType!
+  transactionStatusAll: [TransactionStatus!]!
+  transactionStatus(id: Int!): TransactionStatus!
+  transactionRetrieve(id: Int!): TransactionRetrieve!
+  clients: [Client!]!
+  client(id: Int!): Client!
+  auth(id: Int!): Auth!
+  shared(id: Int!): Shared!
+}
+
+type Mutation {
+  createTransactionCreate(createTransactionCreateInput: CreateTransactionCreateInput!): TransactionCreate!
+  updateTransactionCreate(updateTransactionCreateInput: CreateTransactionCreateInput!): TransactionCreate!
+  removeTransactionCreate(id: Int!): TransactionCreate!
+  createTransactionType(createTransactionTypeInput: CreateTransactionTypeInput!): TransactionType!
+  updateTransactionType(updateTransactionTypeInput: UpdateTransactionTypeInput!): TransactionType!
+  removeTransactionType(id: Int!): TransactionType!
+  createTransactionStatus(createTransactionStatusInput: CreateTransactionStatusInput!): TransactionStatus!
+  updateTransactionStatus(updateTransactionStatusInput: UpdateTransactionStatusInput!): TransactionStatus!
+  removeTransactionStatus(id: Int!): TransactionStatus!
+  createTransactionRetrieve(createTransactionRetrieveInput: CreateTransactionRetrieveInput!): TransactionRetrieve!
+  updateTransactionRetrieve(updateTransactionRetrieveInput: UpdateTransactionRetrieveInput!): TransactionRetrieve!
+  removeTransactionRetrieve(id: Int!): TransactionRetrieve!
+  createClient(createClientInput: CreateClientInput!): Client!
+  updateClient(updateClientInput: UpdateClientInput!): Client!
+  removeClient(id: Int!): Client!
+  createAuth(createAuthInput: CreateAuthInput!): Auth!
+  updateAuth(updateAuthInput: UpdateAuthInput!): Auth!
+  removeAuth(id: Int!): Auth!
+  createShared(createSharedInput: CreateSharedInput!): Shared!
+  updateShared(updateSharedInput: UpdateSharedInput!): Shared!
+  removeShared(id: Int!): Shared!
+}
+
+input CreateTransactionCreateInput {
+  accountExternalIdDebit: String
+  accountExternalIdCredit: String
+  tranferTypeId: Int!
+  value: Int!
+  transactionStatusId: Int!
+}
+
+input CreateTransactionTypeInput {
+  name: String!
+}
+
+input UpdateTransactionTypeInput {
+  name: String
+  id: Int!
+}
+
+input CreateTransactionStatusInput {
+  name: String!
+}
+
+input UpdateTransactionStatusInput {
+  name: String
+  id: Int!
+}
+
+input CreateTransactionRetrieveInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateTransactionRetrieveInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
+
+input CreateClientInput {
+  name: String!
+  last_name: String!
+  address: String!
+}
+
+input UpdateClientInput {
+  name: String!
+  last_name: String!
+  address: String!
+  id: Int!
+}
+
+input CreateAuthInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateAuthInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
+
+input CreateSharedInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateSharedInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}

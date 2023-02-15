@@ -1,0 +1,30 @@
+version: '3.7'
+
+services:
+  mydb:
+    container_name: mydb
+    image: nouchka/sqlite3:latest
+    stdin_open: true
+    tty: true
+    ports:
+      - "27017:27017"
+    restart: unless-stopped
+    environment:
+      - SQLITE3_DB=database.sqlite
+    volumes:
+      - /database.sqlite:/root/db/
+
+  myapp:
+    container_name: myapp
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    volumes:
+      - ../:/usr/src/app
+      - ../node_modules:/usr/src/app/node_modules
+    ports:
+      - 3000:3000
+      - 9229:9229
+      - 3100:8080
+    depends_on:
+      - mydb
